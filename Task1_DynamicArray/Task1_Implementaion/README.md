@@ -1,46 +1,22 @@
 <div dir="rtl" lang="he">
 
-# ADT
-במטלה זו תממשו מערך אדפטיבי כללי בשפת C. 
-מערך אדפטיבי הינו מערך שמשנה את גודלו כך שכל פנייה לאינדק אי שלילי היא תקינה. כאשר פונים לאינדקס בו לא הושם ערך אז מוחזר NULL
+# ADT - General Dynamic Array in C
 
-תיאור אופן הפעולה המלא נמצא בקובץ ה
-[ADT_definition.pdf](ADT_definition.pdf) 
-המצורף.
+In this assignment, a general dynamic array in the C language has been implemented. A dynamic array is an array that changes its size so that any non-negative index access is valid. When accessing an index where no value has been set, it returns NULL.
 
-שימו לב אין כל מידע מקדים על סוג המבנים שיכנסו למערך. בתוכנית הדמו יש שימוש בשני מבנים שונים. אין לשנות את הקבציים הקיימים פרט לקובץ הAdptArray.c
+## Examples
 
-כדי לראות איך ,תוכנית אמורה לעבוד, ראו בקובץ
+To understand how the program is expected to work, you can refer to the examples in the file:
 [Demo.c](Demo.c)
-המצורף.
 
- עליכם לכתוב את הקבצים הדרושים כך שהפקודות הבאות יעבדו ללא שגיאות קימפול, זמן ריצה או דליפות זיכרון.:
+To test the program, run the following commands to ensure they execute without compile errors, runtime issues, or memory leaks:
 
 <div dir='ltr'>
 
     make demo
-	make run
+    make run
     make mem_test
 
 </div>
-
-עליכם לכתוב את  הקבצים הבאים:
-
-* AdptArray.c - מימוש הפונקציות הנדרשות. 
-
-שימו לב:
-אין לשנות קבצים קיימים, אלא רק להוסיף קבצים חדשים.
-מערכת הבדיקה האוטומטית מעתיקה מחדש את כל הקבצים הקיימים על-גבי הפתרון שאתם מגישים,
-ולכן כל שינוי שתעשו בקבצים הקיימים יימחק.
-
-ההגשה תתבצעה בגיט. בדיוק כמו בתכנות מערכות א.
-עליכם להגיש קובץ טקסט שמכיל 3 שורות.
-
-לינק לריפוזיטורי
-	
-מזהה הקומיט
-	
-תעודת זהות
-	
 
 </div>
