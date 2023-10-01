@@ -3,40 +3,44 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct AdptArray_{
-    //The arr of the elements
-    PElement  *arr;
-    //The size of the elements in the arr
+// Define the structure of the AdptArray
+struct AdptArray_ {
+    // The array of elements
+    PElement *arr;
+    // The size of the elements in the array
     int size_arr;
-    //pointer on the source copy function
-    COPY_FUNC  copyFunc;
-    //pointer on the source delete function
+    // Pointer to the source copy function
+    COPY_FUNC copyFunc;
+    // Pointer to the source delete function
     DEL_FUNC delFunc;
-    //pointer on the source print function
+    // Pointer to the source print function
     PRINT_FUNC printFunc;
 };
 
-PAdptArray CreateAdptArray(COPY_FUNC copyFunc, DEL_FUNC delFunc,PRINT_FUNC printFunc){
-    //First we check if all the functions were accepted
-    if(copyFunc == NULL || delFunc == NULL || printFunc == NULL){
-//        printf("Error: You need to input the pointers of the functions to create AdptArray");
-        return NULL;
-    }
-    //allocate memory for object PAdptArray
-    PAdptArray  adptArray = (PAdptArray) malloc(sizeof(struct AdptArray_));
-    //Check if malloc function allocated memory
-    if (!adptArray){
-//        printf("error malloc function please try again");
-        return NULL;
-    }
-    //allocate memory for dynamic array for the element's
-    adptArray->arr = (PElement*) calloc(0, sizeof(PElement));
-    //Check if calloc function allocated memory
-    if(!adptArray->arr){
-//        printf("error calloc function please try again");
+// Create a new AdptArray instance
+PAdptArray CreateAdptArray(COPY_FUNC copyFunc, DEL_FUNC delFunc, PRINT_FUNC printFunc) {
+    // Check if all the required functions were provided
+    if (copyFunc == NULL || delFunc == NULL || printFunc == NULL) {
+        // Error handling: Functions pointers must be provided
         return NULL;
     }
 
+    // Allocate memory for the AdptArray object
+    PAdptArray adptArray = (PAdptArray)malloc(sizeof(struct AdptArray_));
+    if (!adptArray) {
+        // Error handling: Memory allocation failed
+        return NULL;
+    }
+
+    // Allocate memory for the dynamic array of elements
+    adptArray->arr = (PElement *)calloc(0, sizeof(PElement));
+    if (!adptArray->arr) {
+        // Error handling: Memory allocation failed
+        free(adptArray);
+        return NULL;
+    }
+
+    // Initialize AdptArray properties
     adptArray->copyFunc = copyFunc;
     adptArray->delFunc = delFunc;
     adptArray->printFunc = printFunc;
@@ -44,9 +48,11 @@ PAdptArray CreateAdptArray(COPY_FUNC copyFunc, DEL_FUNC delFunc,PRINT_FUNC print
 
     return adptArray;
 }
-void DeleteAdptArray(PAdptArray adptArray){
-    for(int i = 0; i<adptArray->size_arr; i++){
-        if(adptArray->arr[i] != NULL){
+
+// Delete an AdptArray and its elements
+void DeleteAdptArray(PAdptArray adptArray) {
+    for (int i = 0; i < adptArray->size_arr; i++) {
+        if (adptArray->arr[i] != NULL) {
             adptArray->delFunc(adptArray->arr[i]);
         }
     }
@@ -54,60 +60,55 @@ void DeleteAdptArray(PAdptArray adptArray){
     free(adptArray);
 }
 
-Result SetAdptArrayAt(PAdptArray adptArray, int index, PElement element){
-    //Check if the array in the index (place that user want to put the element) space in the array is exsit
-    if(adptArray->size_arr >= index){
-        //Check if index space is catch
-        if(adptArray->arr[index] != NULL){
-            //Delete the old element for the new element
+// Set an element at a specific index in the AdptArray
+Result SetAdptArrayAt(PAdptArray adptArray, int index, PElement element) {
+    // Check if the array at the specified index exists
+    if (adptArray->size_arr >= index) {
+        // Check if the index space is occupied
+        if (adptArray->arr[index] != NULL) {
+            // Delete the old element to make room for the new element
             adptArray->delFunc(adptArray->arr[index]);
             adptArray->size_arr -= 1;
         }
-        //Copy the new element and insert him to the array
+        // Copy the new element and insert it into the array
         adptArray->arr[index] = adptArray->copyFunc(element);
         adptArray->size_arr += 1;
-//        printf("The insert of the element successful:\n");
-//        adptArray->printFunc(adptArray->arr[index]);
         return SUCCESS;
-    }
-    else{
-        //realloc function increase the cells in the array and copy the old element's to the new array
-        //and release the old array from the memory
-        adptArray->arr = (PElement*) realloc(adptArray->arr, sizeof(PElement) * (index + 1));
-        //Check if realloc function allocated memory
-        if(!adptArray->arr){
-//            printf("error realloc function please try again");
+    } else {
+        // Reallocate memory to increase the array's size
+        adptArray->arr = (PElement *)realloc(adptArray->arr, sizeof(PElement) * (index + 1));
+        if (!adptArray->arr) {
+            // Error handling: Memory allocation failed
             return FAIL;
         }
-        //Copy the new element and insert him to the array
+        // Copy the new element and insert it into the array
         adptArray->arr[index] = adptArray->copyFunc(element);
         adptArray->size_arr = index + 1;
-//        printf("The insert of the element successful:\n");
-//        adptArray->printFunc(adptArray->arr[index]);
         return SUCCESS;
-        }
+    }
 }
 
-PElement GetAdptArrayAt(PAdptArray adptArray, int index){
-    if ((index < adptArray->size_arr) && (adptArray->arr[index] != NULL)){
+// Get an element at a specific index in the AdptArray
+PElement GetAdptArrayAt(PAdptArray adptArray, int index) {
+    if ((index < adptArray->size_arr) && (adptArray->arr[index] != NULL)) {
         return adptArray->copyFunc(adptArray->arr[index]);
     }
     return NULL;
 }
 
-int GetAdptArraySize(PAdptArray adptArray){
-    if (adptArray->arr == NULL){return -1;}
+// Get the size of the AdptArray
+int GetAdptArraySize(PAdptArray adptArray) {
+    if (adptArray->arr == NULL) {
+        return -1;
+    }
     return adptArray->size_arr;
 }
 
-void PrintDB(PAdptArray adptArray){
-//    printf("The adptArray element's:\n");
-    for(int i = 0; i<adptArray->size_arr; i++){
-        if(adptArray->arr[i] != NULL){
+// Print the elements of the AdptArray
+void PrintDB(PAdptArray adptArray) {
+    for (int i = 0; i < adptArray->size_arr; i++) {
+        if (adptArray->arr[i] != NULL) {
             adptArray->printFunc(adptArray->arr[i]);
         }
     }
 }
-
-
-
