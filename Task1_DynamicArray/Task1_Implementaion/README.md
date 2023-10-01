@@ -4,8 +4,6 @@
 
 In this assignment, a general dynamic array in the C language has been implemented. A dynamic array is an array that changes its size so that any non-negative index access is valid. When accessing an index where no value has been set, it returns NULL.
 
-## Examples
-
 To understand how the program is expected to work, you can refer to the examples in the file:
 [Demo.c](Demo.c)
 
