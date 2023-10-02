@@ -17,11 +17,11 @@ The following operators are overloaded for the `Fraction` class:
 ## Usage Example
 You can find usage examples of the `Fraction` class in [Demo.cpp](Demo.cpp).
 
+## Note
+When working with floating-point variables, ensure that up to 3 digits beyond the decimal point are used for accuracy in operations involving fractions and floats.
+
 ## Testing
 To run all the tests and ensure that all required files are working without errors, use the following command:
 
 ```bash
 bash grade
-
-##Note
-When working with floating-point variables, ensure that up to 3 digits beyond the decimal point are used for accuracy in operations involving fractions and floats.
