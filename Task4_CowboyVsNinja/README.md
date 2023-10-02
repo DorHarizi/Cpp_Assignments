@@ -1,155 +1,52 @@
-# cowboy_vs_ninja_a
+# Cowboy_Vs_Ninja_a Project
 
-בתרגיל זה ניצור סימולציה של קרב בין נינגות ובוקרים
+## Overview
+This project creates a simulation for an exciting battle scenario between ninjas and cowboys.
 
-# חלק 1 Point
+## Part 1: Point Class
+### Description
+- The `Point` class helps in maintaining the positions of units on a game board.
+- Positions are defined by two coordinates of the double type (x and y).
 
-תחילה, נכתוב מחלקה שתעזור לנו לשמור מיקום על לוח המשחק. המיקום נתון כשתי קורדינאטות מסוג double ששומרות
-את מיקום היחידה לאורך הצירים x ו - y בהתאם.
-על ממשק המחלקה לתמוך בפעולות הבאות:
+### Operations
+- **Constructor**: Initializes a point with two coordinates.
+- **distance()**: Calculates and returns the distance between two points.
+- **print()**: Displays coordinates.
+- **moveTowards()**: Returns a point nearest to the destination, but within a given distance from the source.
 
-קונסטרקטור מקבל את שתי הקואורדינאטות –
+## Part 2: Character Class
+### Description
+- The `Character` class represents a game unit with attributes like location (Point type), health points (integer), and name (string).
 
-מרחק distance
-מקבלת נקודה ומחשבת את המרחק בין שתי הנקודות –
+### Functions
+- **isAlive()**: Returns true if the character is alive (health points > 0).
+- **distance()**: Computes distance between two characters.
+- **hit(integer)**: Reduces health points by an integer value.
+- **getName()**, **getLocation()**, **print()**: Retrieve name, location, and print character details respectively.
 
-הדפסה print
-מדפיסה את שתי הקואורדינטות בין סוגריים. -
+#### Additional for Cowboys
+- Attribute: bullet count.
+- Methods: **shoot()**, **hasBullets()**, **reload()**.
 
-לזוז ל moveTowards
-מקבלת נקודת מקור, נקודת יעד ומרחק. הפונקציה מחזירה את הנקודה הקרובה ביותר לנקודת היעד, –
-שנמצאת כל היותר במרחק הנתון מנקודת המקור
+#### Ninjas
+- Types: `YoungNinja`, `TrainedNinja`, `OldNinja` with varying speeds and initial health points.
 
-# חלק 2 Character
+## Part 3: Team Classes
+### Description
+- The `Team` class represents a group of up to ten fighters, either ninjas or cowboys, with a designated leader.
 
-מחלקה זו מציינת דמות. לדמות יש מיקום )מסוג Point (, נקודות פגיעה )מיוצג ע"י מספר שלם( ושם שמיוצג ע"י מחרוזת
-תווים.
-פונקציות המוגדרות על דמות:
+### Methods
+- **add()**: Adds a cowboy or ninja to the team.
+- **attack()**: The team attacks an enemy team following specified rules.
+- **stillAlive()**: Returns the number of living team members.
+- **print()**: Displays details of all team members.
+- A destructor that frees allocated memory for team members.
 
-האם חייisAlive()
-מחזיר ערך בוליאני האם הדמות בחיים )כלומר יש לה יותר מאפס נקודות פגיעה( – –
+### Variations
+- `team2`: Like `Team`, but iterates over characters in the added order without distinguishing between cowboys and ninjas.
+- `SmartTeam`: Flexible iteration over characters to maximize damage to the opponent.
 
-מרחק distance
-מקבל פוינטר לדמות אחרת ומחזיר את המרחק בין הדמויות ) – – double .)
+## Part B: Implementation
+Implement the project to pass all specified tests. Write necessary files so commands can run without errors. Additional commands for tidying code and checking for memory leaks are suggested. Only add new files; do not modify existing ones.
 
- פגע hit
-מקבל מספר שלם. מחסיר את כמות נקודות הפגיעה המתאים מהדמות. לא מחזיר דבר. –
-
-שם getName()
-מחזיר את שם הדמות. -
-
-מיקום getLocation()
-מחזיר את מיקום הדמות. -
-
-הדפסה print()
-מדפיס את שם הדמות, את מספר נקודות הפגיעה שלה, ואת הנקודה בה הדמות נמצאת. אם הדמות מתה מספר - -
-נקודות הפגיעה לא יודפס, ושם הדמות יופיע בסוגריים. לפני השם תופיע אות שמציינת את סוג הדמות: N לנינג'ה ו - C
-לבוקר.
-
-עבור בוקרים מוגדר גם הפרמטר "כמות כדורים" )מספר שלם( בוקר תמיד נוצר עם שישה כדורים ו 110 נקודות פגיעה. -
-הפונקציות הבאות מוגדרות עבור בוקרים בלבד:
-
-לירות shoot 
-מקבל מצביע לאוייב. אם הבוקר לא מת ונשארו לו כדורים, הבוקר יורה באויב, מחסיר מהאויב 10 נקודות פגיעה –
-ומאבד כדור אחד. אחרת, לא ייגרם לאויב כל נזק.
-
-בדיקת מחסנית hasboolets()
-מחזיר – Boolean שמציין האם נשארו כדורים באקדח של הבוקר.
-
-טעינה מחדש reload()
-טוען את האקדח בשישה כדורים חדשים.
-
-עבור נינג'ות מוגדר הפרמטר מהירות )מספר שלם(
-הפונקציות הבאותת מוגדרות עבור נינג'ות בלבד:
-
-תזוזה move 
-מקבלת מצביע לאוייב ומתקדמת לעבר האוייב. הנינג'ה מתקדמת מרחק השווה למהירות שלה. –
-
-שיסוף slash()
-– – מקבלת מצביע לאוייב. אם הנינג'ה בחיים והאוייב במרחק של פחות ממטר אחד הנינג'ה תגרום לאוייב נזק של 40
-נקודות פגיעה. אחרת, לא ייגרם לאוייב כל נזק.
-
-יש שלושה סוגים של נינג'ות:
-
-YoungNinja
-נעות במהירות 14 . נוצרות עם 100 נקודות פגיעה. –
-
-TrainedNinja
-נעות במהירות 12 . נוצרות עם 120 נקודות פגיעה. –
-
-OldNinja
-נעות במהירות 8. נוצרות עם 150 נקודות פגיעה.
-
-# חלק 3 team
-
-מחלקה זו היא קבוצה של עד עשרה לוחמים, כאשר לוחם יכול להיות נינג'ה או בוקר. לכל קבוצה מוגדר מנהיג שהוא אחד
-הלוחמים.
-כאשר קבוצה נוצרת, היא מקבלת מצביע למנהיג.
-פונקציות המוגדרות לגבי קבוצה:
-
-הוספה add() 
-מקבלת מצביע לבוקר או נינג'ה, ומוסיפה אותו לקבוצה. –
-
-תקיפה attack()
-מקבלת מצביע לקבוצה אויבת. תקיפת הקבוצה האויבת תיעשה בצורה הבאה: –
-תחילה יש לבדוק האם מנהיג הקבוצה התוקפת בחיים. אחרת יש לבחור מנהיג חדש, שהוא הדמות החיה הקרובה – –
-ביותר )מבחינת מיקום( למנהיג המת.
-אחר כך הקבוצה תיבחר קורבן מתוך קבוצת האויבים הקורבן הוא חבר קבוצת האויבים החי שעומד קרוב ביותר – – -
-למנהיג הקבוצה התוקפת.
-כל החברים החיים של הקבוצה התוקפת יתקפו את הקורבן הנבחר. בוקרים שיש להם כדורים באקדח יירו בקורבן,
-ובוקרים שאין להם כדורים יטענו את הנשק שלהם. נינג'ות שנמצאות במרחק פחות ממטר אחד מהקורבן ישספו את
-הקורבן, ונינג'ות שנמצאות רחוק יותר יתקדמו לעבר הקורבן. בכל שלב, אם הקורבן מת ייבחר קורבן חדש )שיהיה,
-שוב, דמות האויב החיה הקרובה ביותר למנהיג הקבוצה התוקפת.
-אם אין חברים חיים בקבוצה התוקפת או בקבוצת האויב התקיפה תסתיים. –
-
-האם חיי stillAlive()
-מחזירה מספר שלם כמות חברי הקבוצה שנותרו בחיים. – –
-
-הדפסה print()
-עוברת על כל הדמויות בקבוצה ומדפיסה את פרטיהן. –
-
-דיסטרקטור משחרר את הזכרון שהוקצה לכל הדמויות החברות בקבוצה. –
-
-
-מעבר על כל חברי הקבוצה (לצורך תקיפה, הדפסה, או השוואה) יתבצע תמיד בסדר הבא: קודם כל מעבר על כל הבוקרים,
-ואחר כך מעבר על כל הנינג'ות. בתוך כל קבוצה המעבר יתבצע על פי סדר ההוספה של הדמויות. מטרת הדרישה לפצל בין - -
-בוקרים לנינג'ות בחלק זה היא להקל עליכם. אם אתם מוצאים שהדרישה מסבכת את המימוש חשבו על מימוש אחר. –
-כאשר מחפשים את הדמות הקרובה ביותר, ושתי דמויות נמצאות במרחק זהה, תיבחר הדמות הראשונה שנבדקה ביניהן.
-
-# team2 
-
-זהה לteam אך המעבר על הדמויות יהיה לפי סדר ההוספה ללא אבחנה של בוקרים או נינגות
-
-# SmartTeam
-
-זהה לteam המעבר על הדמויות יהיה לפי בחירתכם לפי איזה סדר שתראו לנכון לממש
-מותר ורצוי בשלב זה "לתשאל" את הקבוצה השניה על מיקומי הכוחות והסטאטוס שלהם כמו גם להתחשב במצב הקבוצה התוקפת כדי למקסם נזק. 
-כאשר מטלה זו תיבדק במעבדה סטודנטים עם אלגוריתם חכם, יצירתי, יעיל ואפקטיבי יזכו בנקודות בונוס 
-(אי אפשר לעבור את ה10 מקסימום ועדין ניתן לקבל 10 עם אלגוריתם פשוט אבל אלגוריתם טוב יכפה על טעויות במקומות אחרים) 
-
-
-
-**חלק ב**: יש לכתוב: 
-
-*מימוש מלא למטלה כדי שהטסט יעבור.
-  
-כיתבו את כל הקבצים הדרושים כך שהפקודות הבאות יעבדו ללא שגיאות:
-
-<div dir='ltr'>
-
-	bash grade
-
-</div>
-
-מומלץ גם להריץ:
-
-<div dir='ltr'>
-
-    make tidy
-    make valgrind
-
-</div>
-
-אין לשנות קבצים קיימים אלא רק להוסיף קבצים חדשים.
-
-בהצלחה
+## Good Luck!
