@@ -46,7 +46,3 @@ This project creates a simulation for an exciting battle scenario between ninjas
 - `team2`: Like `Team`, but iterates over characters in the added order without distinguishing between cowboys and ninjas.
 - `SmartTeam`: Flexible iteration over characters to maximize damage to the opponent.
 
-## Part B: Implementation
-Implement the project to pass all specified tests. Write necessary files so commands can run without errors. Additional commands for tidying code and checking for memory leaks are suggested. Only add new files; do not modify existing ones.
-
-## Good Luck!
