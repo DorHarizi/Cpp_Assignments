@@ -13,7 +13,6 @@ int MinNum = INT_MIN;
 Fraction::Fraction(){
     this->numerator = 0;
     this->denominator = 1;
-    // cout<<"crate new Fraction()\n"<<endl;
 }
 
 Fraction::Fraction(float num){
@@ -21,7 +20,6 @@ Fraction::Fraction(float num){
     int gcd = __gcd(numerator, 1000);
     this->numerator = numerator / gcd;
     this->denominator = 1000 / gcd;
-    // cout<<"crate new Fraction("<< num << ")->("<<this->numerator <<","<<this->denominator<<")\n"<<endl;
 }
 
 Fraction::Fraction(int numerator, int denominator){
@@ -36,7 +34,6 @@ Fraction::Fraction(int numerator, int denominator){
         this->numerator = numerator / gcd;
         this->denominator = denominator / gcd;
     }
-    // cout<<"crate new Fraction("<< numerator<<","<< denominator << ")->("<<this->numerator <<","<<this->denominator<<")\n"<<endl;
 }
 
 // Getters 
