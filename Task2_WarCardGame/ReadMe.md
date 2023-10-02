@@ -11,7 +11,7 @@ This program is a War card game for two players.
 
 ## Demo
 
-Examples of the class's functionality can be found in [Demo.cpp](Demo.cpp).
+Examples of the class's functionality can be found in [Task2_WarCardGame/Task2_Test/Demo.cpp](Demo.cpp).
 
 ## Unit Tests
 
