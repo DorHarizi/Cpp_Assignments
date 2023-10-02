@@ -1,34 +1,50 @@
-
 #pragma once
 
 #include <string>
 #include<iostream>
 using namespace std;
 
+namespace ariel {
 
-namespace ariel{
+    // Card class represents a playing card.
+    class Card {
+    private:
+        int value;    // The numeric value of the card (e.g., 2, 3, 4).
+        string type;  // The type or suit of the card (e.g., Hearts, Diamonds).
+        string name;  // The name of the card (e.g., Ace, King, Queen).
 
-    class Card{
-        private:
-            int value;
-            string type;
-            string name;
+    public:
+        // Default constructor for Card class.
+        Card();
 
-        public:
-            Card();
-            Card(int, string, string);
+        // Parameterized constructor for Card class.
+        Card(int newValue, string newType, string newName);
 
-            int getValue();
-            string getType();
-            string getName();
-            
-            void setValue(int);
-            void setType(string);
-            void setName(string);
+        // Getter function for card value.
+        int getValue();
 
-            string to_string();
+        // Getter function for card type.
+        string getType();
 
-            bool operator<(const Card &Crad2);
-            bool operator==(const Card &Crad2);
+        // Getter function for card name.
+        string getName();
+
+        // Setter function for card value.
+        void setValue(int newValue);
+
+        // Setter function for card type.
+        void setType(string newType);
+
+        // Setter function for card name.
+        void setName(string newName);
+
+        // Less than operator for Card comparison.
+        bool operator<(const Card& Card2);
+
+        // Equality operator for Card comparison.
+        bool operator==(const Card& Card2);
+
+        // Convert Card object to a string representation.
+        string to_string();
     };
 }
