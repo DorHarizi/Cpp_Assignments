@@ -23,5 +23,5 @@ To run all the tests and ensure that all required files are working without erro
 ```bash
 bash grade
 
-Note
+##Note
 When working with floating-point variables, ensure that up to 3 digits beyond the decimal point are used for accuracy in operations involving fractions and floats.
