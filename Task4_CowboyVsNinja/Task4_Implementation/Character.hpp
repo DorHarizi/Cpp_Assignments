@@ -1,38 +1,40 @@
 #pragma once
 
-#include "Point.hpp"
 #include <string>
-#include <stdbool.h>
 
 using namespace std;
 
-namespace ariel{
-    class Character{
-        private:
-            string name;
-            Point location;
-            int numOfHit;
-            bool inTeam;
+namespace ariel
+{
+    class Point
+    {
+    private:
+        double x; // x-coordinate
+        double y; // y-coordinate
 
-        public:
-            // constructors
-            Character(string name, Point location, int numOfHit);
-           
-            // Getters and setters
-            string getName();
-            Point getLocation();
-            bool getInTeam();
-            int getNumOfHit();
-            void setName(string name);
-            void setLocation(Point location);
-            void setInTeam(bool tmp);
-        
-            // functions
-            bool isAlive() const;
-            double distance(Character *element);
-            virtual void attack(Character *enemy);
-            void hit(int Hit);
-            string print();
-            
-        };
+    public:
+        // Constructor: initializes Point with given x and y
+        Point(double x11, double y11);
+
+        // Getter for x
+        double getX();
+
+        // Getter for y
+        double getY();
+
+        // Setter for x
+        void setX(double x11);
+
+        // Setter for y
+        void setY(double y11);
+
+        // Calculates distance to destination Point
+        double distance(Point dest);
+
+        // Moves towards destination by given distance
+        static Point moveTowards(Point src, Point dest, double distance);
+
+        // Returns string representation of Point
+        string print();
+    };
 }
