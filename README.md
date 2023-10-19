@@ -6,28 +6,28 @@ Welcome to my repository of C++ projects! This repository contains five differen
 
 In this project, I implemented a dynamic array. Dynamic arrays are a fundamental concept, allowing arrays to be resized during runtime. Visit the project to see how memory allocation, reallocation, and other essential operations are handled.
 
-- **Read more:** [Dynamic Array](./Task1_DynamicArray/README.md)
+- **Read more:** [Dynamic Array README](./Task1_DynamicArray/README.md)
 
-## 2. [War Card Game](./WarCardGame)
+## 2. [War Card Game](./Task2_WarCardGame)
 
 This project simulates the classic War card game. It demonstrates object-oriented programming concepts, including classes and objects, to handle cards and players.
 
-- **Read more:** [War Card Game README](./WarCardGame/README.md)
+- **Read more:** [War Card Game README](./Task2_WarCardGame/ReadMe.md)
 
-## 3. [Fraction](./Fraction)
+## 3. [Fraction](./Task3_Fraction)
 
 Here, I worked with fractions, implementing mathematical operations such as addition, subtraction, multiplication, and division. This project showcases operator overloading and other C++ features.
 
-- **Read more:** [Fraction README](./Fraction/README.md)
+- **Read more:** [Fraction README](./Task3_Fraction/README.md)
 
-## 4. [Cowboy vs. Ninja Game](./CowboyVsNinja)
+## 4. [Cowboy vs. Ninja Game](./Task4_CowboyVsNinja)
 
 This project is a game where a cowboy faces off against a ninja. It is a simple simulation that uses various C++ concepts to create an engaging text-based game.
 
-- **Read more:** [Cowboy vs. Ninja Game README](./CowboyVsNinja/README.md)
+- **Read more:** [Cowboy vs. Ninja Game README](./Task4_CowboyVsNinja/README.md)
 
-## 5. [Magical Iterator](./MagicalIterator)
+## 5. [Magical Iterator](./Task5_Magical_Iterators)
 
 In this last project, a magical iterator is implemented. The iterator traverses containers in unique ways, demonstrating advanced C++ topics like iterators and operator overloading.
 
-- **Read more:** [Magical Iterator README](./MagicalIterator/README.md)
+- **Read more:** [Magical Iterator README](./Task5_Magical_Iterators/README.md)
