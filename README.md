@@ -6,7 +6,7 @@ Welcome to my repository of C++ projects! This repository contains five differen
 
 In this project, I implemented a dynamic array. Dynamic arrays are a fundamental concept, allowing arrays to be resized during runtime. Visit the project to see how memory allocation, reallocation, and other essential operations are handled.
 
-- **Read more:** [Dynamic Array](github.com/DorHarizi/Cpp_Assignments/blob/main/Task1_DynamicArray/README.md)
+- **Read more:** [Dynamic Array](./blob/main/Task1_DynamicArray/README.md)
 
 ## 2. [War Card Game](./WarCardGame)
 
