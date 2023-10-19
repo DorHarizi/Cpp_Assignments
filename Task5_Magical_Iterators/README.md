@@ -1,4 +1,4 @@
-# **Title: The Quest for the Magical Iterators**
+# **The Quest for the Magical Iterators**
 
 ## **Background Story**
 In the ancient kingdom of Iteratia, a magical container exists, capable of holding various mystical elements. These elements, each with unique properties and abilities, are vital for maintaining the kingdom’s balance. However, the wisdom to harness these elements' powers has been lost over time. Legend speaks of three powerful iterators created to unveil the magical container’s potentials, each representing a different order of traversal through the container, uncovering various mystical elements’ aspects. Currently, the kingdom faces turmoil, and the wise King seeks a talented programmer's assistance to revive these iterators' powers.
